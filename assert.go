@@ -1,4 +1,4 @@
-package bham
+package assert
 
 import (
 	"fmt"
