@@ -67,6 +67,20 @@ func (test *Test) IsNotNil(v interface{}, msgs ...interface{}) {
 	}
 }
 
+// error Tests
+func (test *Test) NoError(e error) {
+	if e != nil {
+		test.logDetails()
+		test.T.Error(e, "was returned")
+	}
+}
+func (test *Test) IsError(e error) {
+	if e == nil {
+		test.logDetails()
+		test.T.Error("No error value was returned")
+	}
+}
+
 // bool tests
 func (test *Test) IsTrue(b bool, msgs ...interface{}) {
 	if !b {
